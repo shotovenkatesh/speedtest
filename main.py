@@ -37,7 +37,7 @@ def start_typing():
     timer_label = Label(window, text="0")
     timer_label.config(font=("Courier", 40),foreground = "#F0A500",background = "#222831")
     timer_label.pack()
-
+    timer_label.config(font=("Courier", 40), foreground="#222831", background="#222831")
     text = Text(window, {"bg": "#222831", "bd": 150, "fg": "#00ADB5", "height": 2, "font": ("Courier New", 30),
                          "insertbackground": "#FF2E63", "wrap": "word","highlightthickness": 0})
 
@@ -51,6 +51,7 @@ def start_typing():
     text.tag_config("start", background="#393E46", foreground="#FFFFFF")
 
     def start_timer(count):
+        timer_label.config(font=("Courier", 40), foreground="#F0A500", background="#222831")
         global times_up
         global correct_words
         global incorrect_words
@@ -60,6 +61,7 @@ def start_typing():
         else:
             times_up = True
             timer_label.config(text="Times Up",padx = 20,pady = 20)
+
             text.config(state="disabled")
             text.destroy()
         if times_up:
